@@ -9,4 +9,4 @@ def About(request):
     return render(request,"website/about.html")
 
 def Contact(request):
-    return render(request,"website/index.html")
+    return render(request,"website/contact.html")
