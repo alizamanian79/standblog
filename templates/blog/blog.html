@@ -54,15 +54,15 @@
                <div class="col-lg-6" >
               <div class="blog-post">
                 <div class="blog-thumb">
-                  <img src="{%static 'assets/images/blog-thumb-01.jpg' %}" alt="">
+                  <img src="{{post.image.url}}" alt="">
                 </div>
                 <div class="down-content">
                   <span><a href="{% url 'blog:post-detail' num=post.id %}">{{post.title}}</a></span>
-                  <a href="post-details.html"><h4>Donec tincidunt leo</h4></a>
+                  {% comment %} <a href="post-details.html"><h4>Donec tincidunt leo</h4></a> {% endcomment %}
                   <ul class="post-info">
-                    <li><a href="#">{{post.author}}</a></li>
-                    <li><a href="#">{{ post.created_time | date:"Y/m/d" }}</a></li>
-                    <li><a href="#">12 Comments</a></li>
+                    <li><a href="{% url "blog:author" auth=post.author%}">{{post.author}}</a></li>
+                    <li><a href="#">Created in: {{ post.created_time | date:"Y/m/d" }}</a></li>
+                    <li><a href="#">Last Edit: {{ post.updated_time}}</a></li>
                   </ul>
                   <p>{{post.description | truncatechars:50}}</p>
                   <div class="post-options">
@@ -70,8 +70,10 @@
                       <div class="col-lg-12">
                         <ul class="post-tags">
                           <li><i class="fa fa-tags"></i></li>
-                          <li><a href="#">Best Templates</a>,</li>
-                          <li><a href="#">TemplateMo</a></li>
+                        
+                          <li><a href="#">Actor Nationality: </a></li>
+                         {% for cate in  post.category.all%}
+                          <li><a href="{% url "blog:category" cat=cate.title%}">{{cate.title}},</a></li> {% endfor %}  
                         </ul>
                       </div>
                     </div>

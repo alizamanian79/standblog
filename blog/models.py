@@ -10,6 +10,9 @@ class Post (models.Model):
     created_time=models.DateTimeField(auto_now_add=True)
     updated_time=models.DateTimeField(auto_now=True)
     author=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    image=models.ImageField(upload_to="blog/images/",default="blog/images/default.jpg")
+    category=models.ManyToManyField("Category",blank=True,null=True)
+
 
     def __str__(self):
         return self.title
@@ -17,3 +20,9 @@ class Post (models.Model):
     class Meta:
         verbose_name="Post"
         verbose_name_plural = "Post's"
+
+class Category(models.Model):
+    title=models.CharField(max_length=150,)
+
+    def __str__(self):
+        return self.title
