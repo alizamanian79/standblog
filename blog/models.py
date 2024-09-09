@@ -10,6 +10,7 @@ class Post (models.Model):
     created_time=models.DateTimeField(auto_now_add=True)
     updated_time=models.DateTimeField(auto_now=True)
     author=models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    image=models.ImageField(upload_to="blog/images/",default="blog/images/default.jpg")
 
     def __str__(self):
         return self.title

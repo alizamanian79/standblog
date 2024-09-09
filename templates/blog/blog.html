@@ -54,7 +54,7 @@
                <div class="col-lg-6" >
               <div class="blog-post">
                 <div class="blog-thumb">
-                  <img src="{%static 'assets/images/blog-thumb-01.jpg' %}" alt="">
+                  <img src="{{post.image.url}}" alt="">
                 </div>
                 <div class="down-content">
                   <span><a href="{% url 'blog:post-detail' num=post.id %}">{{post.title}}</a></span>
