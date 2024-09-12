@@ -220,6 +220,7 @@
                     </div>
                     <div class="content">
                       <ul>
+                        
                         <li><a href="#">- Nature Lifestyle</a></li>
                         <li><a href="#">- Awesome Layouts</a></li>
                         <li><a href="#">- Creative Ideas</a></li>
@@ -237,13 +238,11 @@
                     </div>
                     <div class="content">
                       <ul>
-                        <li><a href="#">Lifestyle</a></li>
-                        <li><a href="#">Creative</a></li>
-                        <li><a href="#">HTML5</a></li>
-                        <li><a href="#">Inspiration</a></li>
-                        <li><a href="#">Motivation</a></li>
-                        <li><a href="#">PSD</a></li>
-                        <li><a href="#">Responsive</a></li>
+
+                        {% for tag in post.tag.all %}
+                        <a href="{% url "blog:tag" tag=tag.title %}">{{tag.title}}</a>
+                {% endfor %}
+
                       </ul>
                     </div>
                   </div>

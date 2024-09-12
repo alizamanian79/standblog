@@ -8,4 +8,5 @@ urlpatterns = [
     path("<int:num>/",post_details ,name='post-detail'),
     path("category/<cat>/",blog ,name='category'),
     path("author/<auth>/",blog ,name='author'),
+    path("tag/<tag>/",blog ,name='tag'),
 ]
