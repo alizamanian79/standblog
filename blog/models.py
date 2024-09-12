@@ -14,7 +14,7 @@ class Post(models.Model):
     category = models.ManyToManyField("category",null=True, blank=True,default="all")
     tag = models.ManyToManyField("tag", blank=True,null=True)
     nationality=models.ManyToManyField("nationality", blank=True,null=True)
-    video=models.FileField(upload_to="blog/videos/", max_length=100,blank=True,null=True)
+
 
     def __str__(self):  
         return self.title  
