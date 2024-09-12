@@ -195,7 +195,7 @@
                 <div class="content">
                   <ul>
                     {% for cat in  categories.all%}
-                    <li><a href="#">- {{cat.title}}</a></li>
+                    <li><a href="{% url "blog:category" cat=cat.title %}">- {{cat.title}}</a></li>
                   {% endfor %}
                   </ul>
                 </div>

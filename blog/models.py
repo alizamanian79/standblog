@@ -11,9 +11,10 @@ class Post(models.Model):
     updated_time = models.DateTimeField(auto_now=True)  
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)  
     image = models.ImageField(upload_to="blog/images/", default="blog/images/default.jpg")  
-    category = models.ManyToManyField("category",null=True, blank=True)
+    category = models.ManyToManyField("category",null=True, blank=True,default="all")
     tag = models.ManyToManyField("tag", blank=True,null=True)
     nationality=models.ManyToManyField("nationality", blank=True,null=True)
+    video=models.FileField(upload_to="blog/videos/", max_length=100,blank=True,null=True)
 
     def __str__(self):  
         return self.title  
