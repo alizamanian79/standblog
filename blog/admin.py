@@ -1,5 +1,5 @@
 from django.contrib import admin  
-from .models import Post,Category,Tag
+from .models import Post,Category,Tag,Nationality
 
 # Register your models here.  
 class PostAdmin(admin.ModelAdmin):  
@@ -16,9 +16,12 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class TagAdmin (admin.ModelAdmin):
     list_display=["title","active"]
+    
 
+class NationalityAdmin (admin.ModelAdmin):
+    list_display=["title","active"]
 
-
+admin.site.register(Nationality, NationalityAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)

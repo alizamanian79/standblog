@@ -71,9 +71,11 @@
                         <ul class="post-tags">
                           <li><i class="fa fa-tags"></i></li>
                         
-                          <li><a href="#">Actor Nationality: </a></li>
-                         {% for cate in  post.category.all%}
-                          <li><a href="{% url "blog:category" cat=cate.title%}">{{cate.title}},</a></li> {% endfor %}  
+                          <li><a href="#">Nationality: </a></li>
+                         {% for nat in  post.nationality.all%}
+                          <li><a href="{% url "blog:nationality" nat=nat.title%}">{{nat.title}},</a></li> 
+                          {% endfor %}  
+
                         </ul>
                       </div>
                     </div>

@@ -16,6 +16,8 @@ def blog(request,**kwargs):
     if kwargs.get("auth"):  
         posts = posts.filter(author__username=kwargs["auth"])
 
+    if kwargs.get("nat"):  
+        posts = Post.objects.filter(nationality__title=kwargs["nat"])
 
     context = {"posts": posts,"tags":tags,"categories":categories}  
     return render(request, "blog/blog.html", context)  

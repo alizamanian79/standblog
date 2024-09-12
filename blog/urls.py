@@ -9,4 +9,5 @@ urlpatterns = [
     path("category/<cat>/",blog ,name='category'),
     path("author/<auth>/",blog ,name='author'),
     path("tag/<tag>/",blog ,name='tag'),
+    path("nationality/<nat>/",blog ,name='nationality'),
 ]
