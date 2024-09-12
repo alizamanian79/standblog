@@ -27,3 +27,5 @@ __pycache__
 blog/__pycache__
 *$py.class
 # End of https://www.toptal.com/developers/gitignore/api/venv
+db.sqlite3
+db.sqlite3
