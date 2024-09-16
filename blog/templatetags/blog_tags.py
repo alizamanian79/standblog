@@ -1,0 +1,30 @@
+
+from django import template
+register=template.Library()
+from ..models import Post
+from persiantools.jdatetime import  JalaliDateTime 
+@register.simple_tag
+def test(name):
+    return f"Hi {name}"
+
+@register.filter
+def upper(value):
+    grab = str(value)
+    return grab.upper()
+
+
+@register.filter
+def lower(value):
+    grab = str(value)
+    return grab.lower()
+
+@register.inclusion_tag("blog/includes/blog-recent.html")
+def recent_post():
+    posts=Post.objects.filter(active=True).order_by("-created_time")[:3]
+    return {"posts":posts}
+
+
+
+@register.filter
+def jalali_date(value):
+    return JalaliDateTime(value).strftime("%Y/%m/%d")
