@@ -78,7 +78,7 @@
                         <ul class="post-tags">
                           <li><i class="fa fa-tags">Post Categories:</i></li>
                           {% for cat in post.category.all%}
-                          <li><a href="#">{{cat.title}} , </a></li> 
+                          <li><a href="{% url "blog:category" cat=cat.title %}">{{cat.title}} , </a></li> 
                            {% endfor %}
                         </ul>
                       </div>
@@ -126,9 +126,9 @@
 
       {% include "blog/includes/blog-search.html" %} 
       {% recent_post %} 
-      {% include "blog/includes/blog-categories.html" %} 
+      {% categories %} 
       {% include "blog/includes/blog-tags.html" %} 
-      {% test 'ali' %}
+      {% comment %} {% test 'ali' %} {% endcomment %}
           </div>
         </div>
       </div>

@@ -6,9 +6,9 @@
       </div>
       <div class="content">
         <ul>
-        
-          <li><a href="#">- Test</a></li>
-      
+        {% for cat,num in categories_count.items  %}
+          <li><a href="{% url "blog:category" cat=cat %}">- {{cat}}:{{num}}</a></li>
+      {% endfor %}
         </ul>
       </div>
     </div>

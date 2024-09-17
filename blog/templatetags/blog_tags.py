@@ -1,7 +1,7 @@
 
 from django import template
 register=template.Library()
-from ..models import Post
+from ..models import Post,Category
 from persiantools.jdatetime import  JalaliDateTime 
 @register.simple_tag
 def test(name):
@@ -28,3 +28,13 @@ def recent_post():
 @register.filter
 def jalali_date(value):
     return JalaliDateTime(value).strftime("%Y/%m/%d")
+
+@register.inclusion_tag("blog/includes/blog-categories.html")
+def categories():
+    categories=Category.objects.all()
+    posts=Post.objects.filter(active=True)
+    categories_count={}
+    for cat in categories:
+        categories_count[cat]=posts.filter(category__title=cat).count()
+    
+    return {'categories_count':categories_count}

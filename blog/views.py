@@ -14,6 +14,8 @@ def blog(request, **kwargs):
     context = {"posts": posts}  
     return render(request, "blog/blog.html", context)  
 
+
+
 def post_details(request, num):   
     post = get_object_or_404(Post, id=num, active=True)  
     context = {"post": post}   
