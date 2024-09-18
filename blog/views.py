@@ -12,6 +12,9 @@ def blog(request, **kwargs):
     if kwargs.get("auth"):  
         posts = posts.filter(author__username=kwargs["auth"])  
 
+    if kwargs.get("tag"):  
+        posts = posts.filter(tags__name=kwargs["tag"])  
+
     if search := request.GET.get("q"):
         posts=posts.filter(Q(title__icontains=search) | Q(description__icontains=search))
 
