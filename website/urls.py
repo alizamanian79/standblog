@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import Index,About,Contact
+from .views import Index,about,contact
 
 app_name='website'
 urlpatterns = [
     path("",Index,name="index"),
-    path("about/",About,name="about"),
-    path("contact/",Contact,name="contact"),
+    path("about/",about,name="about"),
+    path("contact/",contact,name="contact"),
 ]
