@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404  
-from .models import Post  
+from .models import Post  , Comment
 from django.db.models import Q  
 
 # Create your views here.  
@@ -26,5 +26,6 @@ def blog(request, **kwargs):
 
 def post_details(request, num):   
     post = get_object_or_404(Post, id=num, active=True)  
-    context = {"post": post}   
+    comment=Comment.objects.filter(post=post, active=True)
+    context = {"post": post,"comment":comment}     
     return render(request, "blog/post-details.html", context)
