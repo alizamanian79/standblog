@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404  
 from .models import Post  , Comment
 from django.db.models import Q  
+from .forms import CommentForm  
+from django.shortcuts import redirect
 
 # Create your views here.  
 def blog(request, **kwargs):  
@@ -27,5 +29,15 @@ def blog(request, **kwargs):
 def post_details(request, num):   
     post = get_object_or_404(Post, id=num, active=True)  
     comment=Comment.objects.filter(post=post, active=True)
-    context = {"post": post,"comment":comment}     
+
+    if request.method=="POST":
+        forms=CommentForm(request.POST)
+        if forms.is_valid():
+            forms.instance.post=post
+            forms.save()
+            return redirect('/')
+
+
+    forms=CommentForm()
+    context = {"post": post,"comment":comment,"form":forms}     
     return render(request, "blog/post-details.html", context)
