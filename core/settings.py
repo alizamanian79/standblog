@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages','taggit',
 >>>>>>> New-Session
     'django.contrib.staticfiles','django.contrib.humanize',
-    'website','blog',
+    'website','blog','captcha'
 ]
 
 MIDDLEWARE = [
