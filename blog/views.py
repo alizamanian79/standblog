@@ -3,7 +3,7 @@ from .models import Post  , Comment
 from django.db.models import Q  
 from .forms import CommentForm  
 from django.shortcuts import redirect
-
+from django.contrib import messages  
 # Create your views here.  
 def blog(request, **kwargs):  
     posts = Post.objects.filter(active=True)  
@@ -35,6 +35,7 @@ def post_details(request, num):
         if forms.is_valid():
             forms.instance.post=post
             forms.save()
+            messages.success(request, "Comment has been posted successfully")
             return redirect('/')
 
 
