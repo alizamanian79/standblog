@@ -1,10 +1,6 @@
 {% extends "base.html" %} 
 {%load static%}
-<<<<<<< HEAD
-{% load blog_tags %}
-=======
 {%load blog_tags%}
->>>>>>> New-Session
  {% block content %}
 <!-- Banner Starts Here -->
 <div class="heading-page header-text">
@@ -67,15 +63,9 @@
                   <span><a href="{% url 'blog:post-detail' num=post.id %}">{{post.title|lower}}</a></span>
                   {% comment %} <a href="post-details.html"><h4>Donec tincidunt leo</h4></a> {% endcomment %}
                   <ul class="post-info">
-<<<<<<< HEAD
-                    <li><a href="{% url "blog:author" auth=post.author%}">{{post.author|upper}}</a></li>
-                    <li><a href="#">Created in: {{ post.created_time|jalali_date }}</a></li>
-                    <li><a href="#">Last Edit: {{ post.updated_time|jalali_date}}</a></li>
-=======
                     <li><a href="{% url "blog:author" auth=post.author%}">{{post.author|lower}}</a></li>
                     <li><a href="#">Created in: {{ post.created_time | date:"Y/m/d" }}</a></li>
                     <li><a href="#">Last Edit: {{ post.updated_time}}</a></li>
->>>>>>> New-Session
                   </ul>
                   <p>{{post.description | truncatechars:50}}</p>
 
@@ -136,15 +126,6 @@
       <div class="col-lg-4">
         <div class="sidebar">
           <div class="row">
-<<<<<<< HEAD
-
-        {% include "blog/includes/blog-search.html" %}
-        {% recent_post%}
-        {% include "blog/includes/blog-categories.html" %}
-        {% include "blog/includes/blog-tag.html" %}
-        {% test 'ali'%}
-=======
->>>>>>> New-Session
 
       {% include "blog/includes/blog-search.html" %} 
       {% recent_post %} 

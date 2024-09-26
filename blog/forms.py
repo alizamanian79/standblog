@@ -3,7 +3,7 @@ from .models import Comment
 from captcha.fields import CaptchaField
 
 class CommentForm(forms.ModelForm):
-    captcha = CaptchaField()
+    # captcha = CaptchaField()
     class Meta:
         model = Comment  
         fields = '__all__'

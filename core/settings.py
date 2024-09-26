@@ -35,11 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-<<<<<<< HEAD
-    'django.contrib.messages',
-=======
     'django.contrib.messages','taggit',
->>>>>>> New-Session
     'django.contrib.staticfiles','django.contrib.humanize',
     'website','blog','captcha'
 ]

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from django import template
 from persiantools.jdatetime import JalaliDateTime
 from ..models import Post
@@ -28,7 +28,7 @@ def upper(value):
 @register.filter
 def jalali_date(value):
     return JalaliDateTime(value).strftime("%Y/%m/%d")
-=======
+
 
 from django import template
 register=template.Library()
@@ -69,4 +69,4 @@ def categories():
         categories_count[cat]=posts.filter(category__title=cat).count()
     
     return {'categories_count':categories_count}
->>>>>>> New-Session
+
