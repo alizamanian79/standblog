@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages','taggit',
     'django.contrib.staticfiles','django.contrib.humanize',
-    'website','blog','captcha'
+    'website','blog','captcha','accounts'
 ]
 
 MIDDLEWARE = [
