@@ -33,7 +33,7 @@
 	</div>
 
 	<div class="form-container sign-in-container">
-		<form method="POST" action="{% url "accounts:mode" mode='sign-in' %}" >
+		<form method="POST" action="{% url "accounts:login" %}" >
 			<h1>Sign in</h1>
 			{% csrf_token %}
 			<div class="social-container">
