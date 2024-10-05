@@ -1,5 +1,5 @@
 from django.db import models  
-from django.contrib.auth.models import User  
+from accounts.models import CustomUser
 from taggit.managers import TaggableManager
 
 # Create your models here. 
@@ -19,7 +19,7 @@ class Post(models.Model):
     active = models.BooleanField(default=False)
     created_time = models.DateTimeField(auto_now_add=True)  
     updated_time = models.DateTimeField(auto_now=True)  
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)  
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True)  
     image = models.ImageField(upload_to="blog/images/", default="blog/images/default.jpg")  
     category = models.ManyToManyField(Category)
     tags = TaggableManager()
