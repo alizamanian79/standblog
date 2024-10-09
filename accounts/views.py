@@ -4,6 +4,10 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages  
 from django.contrib.auth.decorators import login_required  
 
+from django.contrib.auth.views import LoginView
+
+
+
 # Create your views here.  
 def login_view(request):  
     if request.method == 'POST':  
@@ -30,20 +34,26 @@ def login_view(request):
 def logout_view(request):  
     logout(request)  
     messages.success(request, "You logged out successfully.")  
-    return redirect('/')  # Redirect to the desired page after logout  
+    return redirect('accounts/login') 
 
 def signup_view(request):  
+    
     if request.method == 'POST':  
         form = UserCreationForm(request.POST)  
         if form.is_valid():  
             user = form.save()  
-            login(request, user)  # Automatically log in after signup  
             messages.success(request, "You signed up successfully.")  
-            return redirect('/')  # Redirect to the desired page after signup  
+            login(request, user)
+            return redirect('/') 
         else:  
             messages.error(request, "Please correct the error below.")  
     else:  
         form = UserCreationForm()  
 
     context = {"form": form}   
-    return render(request, 'accounts/signup.html', context)  # Make sure to point to your signup template
+    return render(request, 'accounts/signup.html', context) 
+
+
+
+class CustomLogin(LoginView):
+    template_name="accounts/login.html"

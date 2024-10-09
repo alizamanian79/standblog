@@ -12,7 +12,7 @@
 	</head>
 	<body>
 		{% include 'message.html' %}
-	
+       
 <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
@@ -33,10 +33,11 @@
 	</div>
 
 	<div class="form-container sign-in-container">
-		<form method="POST" action="{% url 'accounts:login' %}" >
-		
-			<h1>Sign in</h1>
+		<form method="POST" action="{% url 'accounts:signup' %}" >
 			{% csrf_token %}
+            
+            <h1 >Sign Up</h1>
+            
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -45,8 +46,8 @@
 			<span>or use your account</span>
 			
 			<input type="text" name="username" placeholder="usename" />
-			<input type="password" name="password" placeholder="Password" />
-			{% comment %} <input type="password" name="password2" placeholder="confirm your passworld" /> {% endcomment %}
+			<input type="password" name="password1" placeholder="Password" />
+            <input type="password" name="password2" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
 			<button type="submit">Sign In</button>
 		</form>
@@ -60,12 +61,13 @@
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
+				<a href="">
+                    <button class="ghost" id="signIn" >Sign In</button></a>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
 				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+				<a class="nav-link" href="{% url 'accounts:login'%}"><button class="ghost" id="signUp">Login</button></a>
 			</div>
 		</div>
 	</div>
