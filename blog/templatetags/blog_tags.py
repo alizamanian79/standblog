@@ -30,10 +30,6 @@ def jalali_date(value):
     return JalaliDateTime(value).strftime("%Y/%m/%d")
 
 
-from django import template
-register=template.Library()
-from ..models import Post,Category
-from persiantools.jdatetime import  JalaliDateTime 
 @register.simple_tag
 def test(name):
     return f"Hi {name}"
